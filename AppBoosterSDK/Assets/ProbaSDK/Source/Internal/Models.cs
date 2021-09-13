@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
 	[Serializable]
 	internal class Experiment
@@ -45,8 +45,5 @@ namespace AppboosterSDK.Internal
 	{
 		public string value;
 		public string description;
-
-
 	}
-	
 }

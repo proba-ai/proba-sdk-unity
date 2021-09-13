@@ -1,8 +1,8 @@
-using AppboosterSDK.Types;
+using ProbaSDK.Types;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AppboosterSDK.Internal.DebugView
+namespace ProbaSDK.Internal.DebugView
 {
 	internal class DebugHeader: MonoBehaviour
 	{

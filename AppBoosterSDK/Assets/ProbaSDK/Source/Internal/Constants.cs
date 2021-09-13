@@ -1,8 +1,8 @@
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
 	internal static class Constants
 	{
-		public const string ApiHost = "https://api.appbooster.com";
+		public const string ApiHost = "https://api.proba.ai";
 		public const string MobileApiPath = "api/mobile";
 
 		public const string HeaderContent = "ContentType";
@@ -19,6 +19,6 @@ namespace AppboosterSDK.Internal
 
 		public const int RequestTimeoutSec = 3;
 		
-		public const string DebugPrefabName = "[AppbusterDebugView]";
+		public const string DebugPrefabName = "[ProbaDebugView]";
 	}
 }

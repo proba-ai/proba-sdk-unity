@@ -2,20 +2,20 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AppboosterSDK.Exceptions;
-using AppboosterSDK.Internal;
-using AppboosterSDK.Types;
+using ProbaSDK.Exceptions;
+using ProbaSDK.Internal;
+using ProbaSDK.Types;
 
-namespace AppboosterSDK
+namespace ProbaSDK
 {
-	public static class AppBooster
+	public static class Proba
 	{
-		private static AppBoosterManager _manager; 
+		private static ProbaManager _manager; 
 		
 		public static void Initialize(string sdkToken, string appId, string deviceId = null, string appsFlyerId = null, bool usingShake = true,
 			string amplitudeUserId = null, bool debugLogs = false, (string key, string value)[] defaults = null, (string key, string value)[] deviceProperties = null)
 		{
-			_manager = new AppBoosterManager(sdkToken, appId, deviceId, appsFlyerId, amplitudeUserId, usingShake, debugLogs, 
+			_manager = new ProbaManager(sdkToken, appId, deviceId, appsFlyerId, amplitudeUserId, usingShake, debugLogs, 
 				defaults?.Select(x => new ExperimentValue(x.key, x.value)).ToArray() ?? new ExperimentValue[0],
 				deviceProperties?.Select(x => new ExperimentValue(x.key, x.value)).ToArray() ?? new ExperimentValue[0]);
 		}
@@ -24,7 +24,7 @@ namespace AppboosterSDK
 		{
 			if (_manager == null)
 			{
-				throw new AppBoosterNotInitializedException();
+				throw new ProbaNotInitializedException();
 			}
 			
 			return _manager.FetchAsync(ct);
@@ -34,7 +34,7 @@ namespace AppboosterSDK
 		{
 			if (_manager == null)
 			{
-				throw new AppBoosterNotInitializedException();
+				throw new ProbaNotInitializedException();
 			}
 
 			_manager.OpenDebugView();
@@ -44,7 +44,7 @@ namespace AppboosterSDK
 		{
 			if (_manager == null)
 			{
-				throw new AppBoosterNotInitializedException();
+				throw new ProbaNotInitializedException();
 			}
 
 			return _manager.HasValue(key);
@@ -54,7 +54,7 @@ namespace AppboosterSDK
 		{
 			if (_manager == null)
 			{
-				throw new AppBoosterNotInitializedException();
+				throw new ProbaNotInitializedException();
 			}
 
 			return _manager.GetValue(key);
@@ -64,7 +64,7 @@ namespace AppboosterSDK
 		{
 			if (_manager == null)
 			{
-				throw new AppBoosterNotInitializedException();
+				throw new ProbaNotInitializedException();
 			}
 
 			return _manager.GetExperiments();
@@ -74,7 +74,7 @@ namespace AppboosterSDK
 		{
 			if (_manager == null)
 			{
-				throw new AppBoosterNotInitializedException();
+				throw new ProbaNotInitializedException();
 			}
 
 			return _manager.GetExperimentsWithDetails();

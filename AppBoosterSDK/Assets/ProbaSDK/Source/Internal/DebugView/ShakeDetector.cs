@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace AppboosterSDK.Internal.DebugView
+namespace ProbaSDK.Internal.DebugView
 {
 	internal class ShakeDetector: MonoBehaviour
 	{

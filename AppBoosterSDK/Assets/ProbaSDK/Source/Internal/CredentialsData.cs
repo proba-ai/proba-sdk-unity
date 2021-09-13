@@ -1,4 +1,4 @@
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
 	public class CredentialsData
 	{

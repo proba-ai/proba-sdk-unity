@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AppboosterSDK.Internal.DebugView
+namespace ProbaSDK.Internal.DebugView
 {
-	internal class AppbosterDebugView: MonoBehaviour
+	internal class ProbaDebugView: MonoBehaviour
 	{
 		[SerializeField] private CanvasScaler _scaler;
 		[SerializeField] private GameObject _pDebugRoot;
@@ -17,7 +17,7 @@ namespace AppboosterSDK.Internal.DebugView
 		private List<DebugHeader> _headers = new List<DebugHeader>(8);
 		private List<DebugItem> _items = new List<DebugItem>(8);
 
-		private AppBoosterManager _manager;
+		private ProbaManager _manager;
 			
 		private void Awake()
 		{
@@ -27,7 +27,7 @@ namespace AppboosterSDK.Internal.DebugView
 			Cleanup();
 		}
 
-		public void Show(AppBoosterManager manager)
+		public void Show(ProbaManager manager)
 		{
 			if (_pDebugRoot.activeSelf)
 			{
