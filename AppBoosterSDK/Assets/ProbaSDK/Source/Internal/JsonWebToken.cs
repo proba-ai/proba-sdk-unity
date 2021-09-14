@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
     internal enum JwtHashAlgorithm
     {

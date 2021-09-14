@@ -1,6 +1,6 @@
 using System;
 
-namespace AppboosterSDK.Types
+namespace ProbaSDK.Types
 {
 	[Serializable]
 	public class ExperimentValue

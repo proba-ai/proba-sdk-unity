@@ -1,10 +1,10 @@
 ﻿using System;
-using AppboosterSDK;
+using ProbaSDK;
 using UnityEngine;
 using UnityEngine.UI;
 
 // ReSharper disable once CheckNamespace
-public class AppBoosterExample : MonoBehaviour
+public class ProbaExample : MonoBehaviour
 {
 	[SerializeField] private string _sdkToken = "Insert you SDK token here!";
 	[SerializeField] private string _appId = "Insert you AppId here!";
@@ -13,7 +13,7 @@ public class AppBoosterExample : MonoBehaviour
 
 	void Start()
 	{
-		AppBooster.Initialize(sdkToken: _sdkToken,
+		Proba.Initialize(sdkToken: _sdkToken,
 			appId: _appId,
 			usingShake: true,
 			debugLogs: true,
@@ -27,9 +27,9 @@ public class AppBoosterExample : MonoBehaviour
 			}
 			);
 
-		if (AppBooster.HasValue("buttonColor"))
+		if (Proba.HasValue("buttonColor"))
 		{
-			_button.GetComponentInChildren<Text>().text = AppBooster.GetValue("buttonColor");
+			_button.GetComponentInChildren<Text>().text = Proba.GetValue("buttonColor");
 		}
 
 		FetchData();
@@ -37,23 +37,23 @@ public class AppBoosterExample : MonoBehaviour
 
 	public void OnButtonClick()
 	{
-		AppBooster.LaunchDebugMode();
+		Proba.LaunchDebugMode();
 	}
 
 	private async void FetchData()
 	{
 		try
 		{
-			await AppBooster.FetchAsync();
+			await Proba.FetchAsync();
 
-			if (AppBooster.HasValue("buttonColor"))
+			if (Proba.HasValue("buttonColor"))
 			{
-				_button.GetComponentInChildren<Text>().text = AppBooster.GetValue("buttonColor");
+				_button.GetComponentInChildren<Text>().text = Proba.GetValue("buttonColor");
 			}
 		}
 		catch (Exception e)
 		{
-			Debug.LogError($"Error initializing AppBooster: {e}");
+			Debug.LogError($"Error initializing Proba: {e}");
 		}
 	}
 }

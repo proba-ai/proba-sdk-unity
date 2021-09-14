@@ -1,10 +1,10 @@
 using System.Threading;
 using System.Threading.Tasks;
-using AppboosterSDK.Exceptions;
+using ProbaSDK.Exceptions;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
 	internal class AsyncWebHelper
 	{
@@ -44,17 +44,17 @@ namespace AppboosterSDK.Internal
 
 				if (_debugLogs)
 				{
-					Debug.Log($"[Appbooster] WebRequest {apiUrl} in {(Time.time - tStart):0.000} sec");
+					Debug.Log($"[Proba] WebRequest {apiUrl} in {(Time.time - tStart):0.000} sec");
 				}
 
 				if (request.isNetworkError)
 				{
-					throw new AppBoosterException($"Network error while sending request '{url}': {request.error}");
+					throw new ProbaException($"Network error while sending request '{url}': {request.error}");
 				}
 
 				if (request.isHttpError)
 				{
-					throw new AppBoosterException($"Http error while sending request '{url}': {request.error}");
+					throw new ProbaException($"Http error while sending request '{url}': {request.error}");
 				}
 
 				return request.downloadHandler.text;

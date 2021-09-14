@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AppboosterSDK.Exceptions;
-using AppboosterSDK.Internal.DebugView;
-using AppboosterSDK.Types;
+using ProbaSDK.Exceptions;
+using ProbaSDK.Internal.DebugView;
+using ProbaSDK.Types;
 using UnityEngine;
 
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
-	internal class AppBoosterManager
+	internal class ProbaManager
 	{
 		private readonly bool _debugLogs;
 
@@ -22,13 +22,13 @@ namespace AppboosterSDK.Internal
 		private readonly Dictionary<string, string> _experimentMap = new Dictionary<string, string>(16, StringComparer.InvariantCultureIgnoreCase);
 		private readonly Dictionary<string, string> _optionIdMap = new Dictionary<string, string>(16, StringComparer.InvariantCultureIgnoreCase);
 
-		private readonly AppbosterDebugView _debugView;
+		private readonly ProbaDebugView _debugView;
 
 		private bool _isDebug;
 
 		public CompositeExperiment[] ExperimentsDebug { get; private set; }
 
-		public AppBoosterManager(string sdkToken, string appId, string deviceId, string appsFlyerId, string amplitudeUserId, 
+		public ProbaManager(string sdkToken, string appId, string deviceId, string appsFlyerId, string amplitudeUserId, 
 			bool usingShake, bool debugLogs, ExperimentValue[] defaults, ExperimentValue[] deviceProperties)
 		{
 			if (string.IsNullOrEmpty(sdkToken))
@@ -84,10 +84,10 @@ namespace AppboosterSDK.Internal
 			
 			_client = new AsyncWebHelper(credentials, _debugLogs);
 
-			var prefab = Resources.Load<AppbosterDebugView>(Constants.DebugPrefabName);
+			var prefab = Resources.Load<ProbaDebugView>(Constants.DebugPrefabName);
 			if (prefab == null)
 			{
-				throw new AppBoosterException($"Error loading debug prefab. Try reinstalling package");
+				throw new ProbaException($"Error loading debug prefab. Try reinstalling package");
 			}
 
 			_debugView = GameObject.Instantiate(prefab);
@@ -181,11 +181,11 @@ namespace AppboosterSDK.Internal
 		{
 			IEnumerable<(string, string)> Expand(string key, string value)
 			{
-				yield return ($"[Appbooster] {key}", value);
+				yield return ($"[Proba] {key}", value);
 
 				var optionId = _optionIdMap.TryGetValue(key, out var result) ? result : string.Empty;  
 				
-				yield return ($"[Appbooster] [internal] {key}", optionId);
+				yield return ($"[Proba] [internal] {key}", optionId);
 			}
 			
 			return _experimentMap.SelectMany(x =>Expand(x.Key, x.Value))
@@ -208,7 +208,7 @@ namespace AppboosterSDK.Internal
 
 			if (_debugLogs)
 			{
-				Debug.Log($"[Appbooster] SetExperiment {expKey}={experimentOptionValue}");
+				Debug.Log($"[Proba] SetExperiment {expKey}={experimentOptionValue}");
 			}
 		}
 
@@ -220,7 +220,7 @@ namespace AppboosterSDK.Internal
 
 			if (_debugLogs)
 			{
-				Debug.Log($"[Appbooster] ResetExperiments");
+				Debug.Log($"[Proba] ResetExperiments");
 			}
 		}
 		

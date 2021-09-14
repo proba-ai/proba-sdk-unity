@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace AppboosterSDK.Internal
+namespace ProbaSDK.Internal
 {
 	internal static class LocalStorage
 	{
@@ -13,7 +13,7 @@ namespace AppboosterSDK.Internal
 			public T[] items;
 		}
 		
-		private static string Key(string key) => $"AppBooster.{key}";
+		private static string Key(string key) => $"Proba.{key}";
 		
 		public static string GetString(string key, string def = "")
 		{
