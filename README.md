@@ -4,7 +4,7 @@ Mobile framework for Proba platform.
 
 ## Installation
 
-1. Download ***.unitypackage** file and open it with Unity
+1. Download ***.unitypackage** file from [releases page](https://github.com/proba-ai/proba-sdk-unity) and open it with Unity
 
 ## Usage
 
