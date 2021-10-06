@@ -13,7 +13,7 @@ Mobile framework for Proba platform.
 
 At the program start init SDK
 
-```
+```c#
 using ProbaSDK;
 
 Proba.Initialize(
@@ -38,7 +38,7 @@ Proba.Initialize(
 
 ### How to fetch known test values that associated with your device?
 
-```
+```c#
 private async void FetchDataAsync()
 {
     try
@@ -54,7 +54,7 @@ private async void FetchDataAsync()
 
 ### How to get the value for a specific test?
 
-```
+```c#
 var value = Proba.GetValue("${TEST_KEY}");
 ```
 
@@ -62,7 +62,7 @@ In case of problems with no internet connection or another, the values obtained 
 
 ### How to get user tests for analytics?
 
-```
+```c#
 var experiments = Proba.GetExperiments();
 
 // or if you need additional details for experiments
@@ -72,7 +72,7 @@ var experimentsWithDetails = Proba.GetExperimentsWithDetails();
 
 Appsflyer users can integrate Proba sdk with analytics as shown below:
 
-```
+```c#
 var experiments = Proba.GetExperiments();
 
 // or if you need additional details for experiments
@@ -83,7 +83,7 @@ AppsFlyer.setAdditionalData(experiments);
 
 Amplitude users can integrate Proba sdk with analytics as shown below:
 
-```
+```c#
 var experiments = Proba.GetExperiments();
 
 // or if you need additional details for experiments
@@ -101,7 +101,7 @@ Before debug make sure that debug-mode for your App is turned-on on [settings pa
   ![](https://imgproxy.proba.ai/9ACImnEbmsO822dynjTjcC_B8aXzbbpPQsOgop2PlBs//aHR0cHM6Ly9hcHBib29zdGVyLWNsb3VkLnMzLmV1LWNlbnRyYWwtMS5hbWF6b25hd3MuY29tLzk0N2M5NzdmLTAwY2EtNDA1Yi04OGQ4LTAzOTM4ZjY4OTAzYi5wbmc.png)
 
 
-```
+```c#
 Proba.Initialize(
     ...
     debugLogs: true, // false by default. set to true for verbose logging
@@ -113,7 +113,7 @@ Proba.Initialize(
 In debug mode you can see all actual tests and check how the user will see each option of the test.
 To show the debug activity you just need to turn it on in your personal cabinet and call
 
-```
+```c#
 Proba.LaunchDebugMode();
 ```
 
